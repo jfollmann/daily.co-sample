@@ -20,7 +20,7 @@ class ApiService {
       privacy: "private",
       properties: {
         eject_at_room_exp: false,
-        // exp: '`expr $(date +%s) + 3600`',
+        exp: Math.round(Date.now() / 1000) + 300, // Agora + 5min (360)
         enable_chat: true,
         enable_knocking: true,
         // autojoin: true

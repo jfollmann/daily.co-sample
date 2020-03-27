@@ -32,7 +32,7 @@ app.get("/createToken", loggerMiddleware, (req, res) => {
 
   return DailyService.createMettingToken(room, owner)
     .then(({ data }) => {
-      const url = `${settings.teamUrl}\\${room}?t=${data.token}`;
+      const url = `${settings.teamUrl}${room}?t=${data.token}`;
       res.json({ url })
     })
     .catch(e => res.json({ error: true, e }));
@@ -56,6 +56,6 @@ app.get("/medicalConsultation", loggerMiddleware, async (req, res) => {
   return res.json({ doctorUrl, patientUrl });
 })
 
-app.listen(3000, () => {
+app.listen(settings.port, () => {
   console.log("App running");
 })
