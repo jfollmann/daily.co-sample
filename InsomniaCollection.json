@@ -1,0 +1,248 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2020-03-27T21:18:49.434Z",
+  "__export_source": "insomnia.desktop.app:v7.1.1",
+  "resources": [
+    {
+      "_id": "req_721fab8351d44e7ba231ba26ea03a800",
+      "authentication": {},
+      "body": {},
+      "created": 1585343068992,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1585343095515,
+      "method": "GET",
+      "modified": 1585343665930,
+      "name": "Get Status",
+      "parameters": [],
+      "parentId": "fld_87d8f033b8484d91bc89204d15440c40",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ baseUrl  }}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_87d8f033b8484d91bc89204d15440c40",
+      "created": 1585343065656,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1585343095540,
+      "modified": 1585343629055,
+      "name": "Status",
+      "parentId": "wrk_10771858d69b431785783d597f51c81f",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_10771858d69b431785783d597f51c81f",
+      "created": 1585342997124,
+      "description": "",
+      "modified": 1585342997124,
+      "name": "Daily.co",
+      "parentId": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_de9bc6a19ce24bfbab58c84016f99631",
+      "authentication": {},
+      "body": {},
+      "created": 1585343103007,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1585343103082,
+      "method": "GET",
+      "modified": 1585343258619,
+      "name": "List",
+      "parameters": [],
+      "parentId": "fld_c96dd3751eb94504b12b99747a8dc28c",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ baseUrl  }}/room",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_c96dd3751eb94504b12b99747a8dc28c",
+      "created": 1585343095490,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1585343095490,
+      "modified": 1585343095490,
+      "name": "Room",
+      "parentId": "wrk_10771858d69b431785783d597f51c81f",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_922dd777087342e8a332d396d8e1bae0",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"eventDate\": \"{% now 'iso-8601', '' %}\"\n}"
+      },
+      "created": 1585343123959,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_84a996d642ac43c7bb83c79e24a1d983",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1585343103057,
+      "method": "POST",
+      "modified": 1585343693035,
+      "name": "Create",
+      "parameters": [],
+      "parentId": "fld_c96dd3751eb94504b12b99747a8dc28c",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ baseUrl  }}/room",
+      "_type": "request"
+    },
+    {
+      "_id": "req_fdc7ee3e98fe4ce5ad8cc466c70baaa2",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"room\": \"ij1QLWv139EayV5MyoiC\",\n\t\"username\": \"Jefferson Follmann\",\n\t\"owner\": true\n}"
+      },
+      "created": 1585343389115,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_65476e32d5374c6599ee2b4e325c955e",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1585343389115,
+      "method": "POST",
+      "modified": 1585343800612,
+      "name": "Create",
+      "parameters": [],
+      "parentId": "fld_28daea908ef747be8d5a263bc81d3ad8",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ baseUrl  }}/meetingToken",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_28daea908ef747be8d5a263bc81d3ad8",
+      "created": 1585343366048,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1585343095440,
+      "modified": 1585343369632,
+      "name": "Meeting Token",
+      "parentId": "wrk_10771858d69b431785783d597f51c81f",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_3f5a8b224097454386537506667e2e26",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"eventDate\": \"{% now 'iso-8601', '' %}\",\n\t\"doctorName\": \"Dr Follmann Diel\"\n}"
+      },
+      "created": 1585343499051,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_56a1b57900424bb5a0ed702a033eb9fe",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1585343499051,
+      "method": "POST",
+      "modified": 1585343888443,
+      "name": "Create",
+      "parameters": [],
+      "parentId": "fld_bec1d57c11d1436d9bf558047c2ae67b",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ baseUrl  }}/medicalConsultation",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_bec1d57c11d1436d9bf558047c2ae67b",
+      "created": 1585343488927,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1585343095390,
+      "modified": 1585343491118,
+      "name": "Medical Consultation",
+      "parentId": "wrk_10771858d69b431785783d597f51c81f",
+      "_type": "request_group"
+    },
+    {
+      "_id": "env_d5d751d85c8d67e9bd55498bf62fd8c3c169ac89",
+      "color": null,
+      "created": 1585342997394,
+      "data": {},
+      "dataPropertyOrder": null,
+      "isPrivate": false,
+      "metaSortKey": 1585342997394,
+      "modified": 1585342997394,
+      "name": "Base Environment",
+      "parentId": "wrk_10771858d69b431785783d597f51c81f",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_d5d751d85c8d67e9bd55498bf62fd8c3c169ac89",
+      "cookies": [],
+      "created": 1585342997404,
+      "modified": 1585342997404,
+      "name": "Default Jar",
+      "parentId": "wrk_10771858d69b431785783d597f51c81f",
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "env_e690fcab72f147c58ae1b1e4aa789a16",
+      "color": "#7d69cb",
+      "created": 1585343007369,
+      "data": {
+        "baseUrl": "http://localhost:3000"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 1585343007369,
+      "modified": 1585343054223,
+      "name": "Local",
+      "parentId": "env_d5d751d85c8d67e9bd55498bf62fd8c3c169ac89",
+      "_type": "environment"
+    }
+  ]
+}

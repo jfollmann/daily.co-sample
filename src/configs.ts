@@ -8,7 +8,6 @@ interface Settings {
 }
 
 class Configs {
-
   settings: Settings
 
   constructor() {

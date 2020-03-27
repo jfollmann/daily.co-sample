@@ -15,31 +15,28 @@ class ApiService {
     return this.api.get("rooms", { headers: this.headers });
   }
 
-  createRoom = () => {
+  createRoom = (eventDate: Date, eventDuration = 750) => {
+    const eventTimestamp = Math.round(new Date(eventDate).getTime()/1000);
+
     const body = {
       privacy: "private",
       properties: {
-        eject_at_room_exp: false,
-        exp: Math.round(Date.now() / 1000) + 300, // Agora + 5min (360)
+        nbf: eventTimestamp - 300,
+        exp: eventTimestamp + eventDuration,
         enable_chat: true,
-        enable_knocking: true,
-        // autojoin: true
+        enable_knocking: true
       }
     };
 
     return this.api.post("rooms", body, { headers: this.headers });
   }
 
-  getMettingToken = (token: string) => {
-    return this.api.get(`meeting-tokens/${token}`, { headers: this.headers });
-  }
-
-  createMettingToken = (room: string, owner = false) => {
+  createMettingToken = (room: string, userName: string, owner = false) => {
     const body = {
       properties: {
+        user_name: userName,
         room_name: room,
         is_owner: owner,
-        // eject_at_token_exp: true
       }
     };
 
