@@ -1,6 +1,11 @@
 - Desenhar fluxo Fraga e Braian
 - Testar configurações de expires (room, token)
-- Criar mecanismo de deletar salas
+  - exp (room): Excluir sala ao expirar tempo
+  - eject_at_room_exp (room): Expulsar usuários (??)
+
+- Aplicação manda para uma URL NOSSA (que cria a sala no momento)
+  - Como parear os id's? 
+
 - Testar iframe
 
-- Referencia: https://docs.daily.co/reference#introduction
+- Referência: https://docs.daily.co/reference#introduction
