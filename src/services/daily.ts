@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { settings } from "./configs";
+import { settings } from "../configs";
 
 class ApiService {
   api: AxiosInstance;
@@ -16,7 +16,7 @@ class ApiService {
   }
 
   createRoom = (eventDate: Date, eventDuration = 750) => {
-    const eventTimestamp = Math.round(new Date(eventDate).getTime()/1000);
+    const eventTimestamp = Math.round(new Date(eventDate).getTime() / 1000);
 
     const body = {
       privacy: "private",
@@ -42,7 +42,12 @@ class ApiService {
 
     return this.api.post("meeting-tokens", body, { headers: this.headers });
   }
+
+  deleteRoom = (room: string) => {
+    return this.api.delete(`rooms/${room}`, { headers: this.headers })
+  }
 }
+
 
 const instance = new ApiService();
 export { instance as DailyService };

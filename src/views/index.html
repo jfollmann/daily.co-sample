@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersonalMed Online - Teleconsulta</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        font-weight: normal;
+      }
+
+      li {
+        display: inline-block;
+        font-size: 1.5em;
+        list-style-type: none;
+        padding: 1em;
+        text-transform: uppercase;
+      }
+
+      li span {
+        display: block;
+        font-size: 4.5rem;
+      }
+
+      /* general styling */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-family: -apple-system, 'Nunito Sans', Roboto, sans-serif;
+        transition: all 200ms;
+        opacity: 1;
+        flex-direction: column;
+      }
+      .top-header {
+        flex: 0;
+      }
+      .container {
+        color: #097b98;
+        margin: 0 auto;
+        padding: 0.5rem;
+        text-align: center;
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body style="opacity: 0;">
+    <div class="top-header">
+      <img src="https://personalmedonline.com.br/images/eleve_sm_logo.png" />
+      <span class="title-header">PERSONAL MED ONLINE - TeleConsulta</span>
+    </div>
+    <div class="container">
+      <h1>Olá Alexis</h1>
+      <h1>a sua consulta com Dr. Follmann começa em</h1>
+      <ul>
+        <li id="days"></li>
+        <li id="hours"></li>
+        <li id="minutes"></li>
+        <li id="seconds"></li>
+      </ul>
+    </div>
+    <script>
+      const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+
+      let countDown = new Date('Mar 30, 2020 16:00:00').getTime(),
+        labelTemplate = (number, label) =>
+          `<span>${number}</span>${label}${number > 0 ? 's' : ''}`,
+        x = setInterval(function() {
+          let now = new Date().getTime(),
+            distance = countDown - now;
+
+          (document.getElementById('days').innerHTML = labelTemplate(
+            Math.floor(distance / day),
+            'dia'
+          )),
+            (document.getElementById('hours').innerHTML = labelTemplate(
+              Math.floor((distance % day) / hour),
+              'hora'
+            )),
+            (document.getElementById('minutes').innerHTML = labelTemplate(
+              Math.floor((distance % hour) / minute),
+              'minuto'
+            )),
+            (document.getElementById('seconds').innerHTML = labelTemplate(
+              Math.floor((distance % minute) / second),
+              'segundo'
+            ));
+
+          document.getElementById('days').style.display =
+            distance < day ? 'none' : '';
+          document.getElementById('hours').style.display =
+            distance < hour ? 'none' : '';
+          document.getElementById('minutes').style.display =
+            distance < minute ? 'none' : '';
+          document.getElementById('seconds').style.display =
+            distance < second ? 'none' : '';
+
+          if (distance < 0) {
+            //  clearInterval(x);
+            //  'IT'S MY BIRTHDAY!;
+          }
+          document.getElementsByTagName('body')[0].style.opacity = '';
+        }, second);
+    </script>
+  </body>
+</html>

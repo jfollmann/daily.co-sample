@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,800&display=swap');
+
+.daily-video-toplevel-div {
+  position: relative;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.daily-video-element {
+  object-fit: cover;
+}
+
+.daily-videos-wrapper {
+  position: relative;
+
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+#call-frame,
+#ui-container {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.daily-videos-wrapper,
+#ui-container {
+  display: grid;
+  grid-template-rows: 0.2fr 1.3fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.daily-video-div {
+  position: relative;
+  visibility: visible;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.daily-video-overlay {
+  height: 60px;
+  bottom: 0px;
+}
+#ui-top {
+  grid-area: 1 / 1 / 1 / span 3;
+  color: rgb(12, 154, 190);
+}
+
+#ui-controller {
+  background-color: #383838;
+  grid-area: 3 / 3;
+  padding: 30px;
+}
+#ui-participant {
+  background-color: #242424;
+  grid-area: 2 / 3;
+  padding: 30px;
+}
+
+/** Alone in call **/
+.daily-video-div.local,
+.daily-video-div.screen,
+#ui-local {
+  grid-area: 3 / 1;
+}
+.daily-videos-wrapper.remote-cams-1 > .daily-video-div.remote,
+#ui-alone {
+  background-color: #cecece;
+  grid-area: 2 / 1 / 2 / span 2;
+}
+
+/** Overlay bar colors **/
+.daily-video-overlay.local {
+  background-color: rgba(12, 154, 190, 0.9);
+}
+
+.daily-video-overlay.local.screen {
+  background: none;
+}
+
+.daily-video-div.remote:nth-child(2) .daily-video-overlay {
+  background-color: rgba(76, 217, 100, 0.9);
+}
+
+.daily-video-div.remote:nth-child(3) .daily-video-overlay {
+  background-color: rgba(69, 176, 255, 0.9);
+}
+
+.daily-video-div.remote:nth-child(4) .daily-video-overlay {
+  background-color: rgba(255, 59, 48, 0.9);
+}
+
+.daily-video-div.cam-muted::before {
+  content: '';
+  background: rgba(255, 255, 255, 0.3) !important;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.daily-video-overlay.mic-muted::before {
+  content: '';
+  position: absolute;
+  background-image: url(../images/icon-microphone-off.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.show-names .daily-video-div::before {
+  font-family: 'Lato', sans-serif;
+  content: attr(data-user-name);
+  position: absolute;
+  padding: 0.65em;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+}
+
+.info-div {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 1.5em;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: white;
+  padding: 0.625em;
+}
+
+.info-div .screen .low-bandwidth .info-div {
+  background-color: grey;
+}
+.low-bandwidth .info-div::after {
+  content: '32kb/s upstream video bandwidth cap';
+}
+
+.recording .info-div {
+  background-color: red;
+}
+.recording .info-div::after {
+  content: 'recording';
+}
+.recording .info-div {
+  background-color: red;
+}
+.recording .info-div::after {
+  content: 'recording ...';
+}
+.recording-uploading:not(.recording) .info-div {
+  background-color: green;
+}
+.recording-uploading:not(.recording) .info-div::after {
+  content: 'uploading ...';
+}
+
+@media (max-width: 800px) {
+  .daily-videos-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .daily-videos-wrapper.remote-cams-1 > .daily-video-div.remote {
+    grid-area: 2;
+  }
+}
